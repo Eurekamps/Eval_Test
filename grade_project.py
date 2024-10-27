@@ -14,8 +14,13 @@ with open("README.md", "r") as file:
 # {readme_content}
 # """
 
+#prompt = f"""
+#Check all the GitHub project, file by file and it's complete structure, and Grade is according to these criteria:
+#{readme_content}
+#"""
+
 prompt = f"""
-Check all the GitHub project, file by file and it's complete structure, and Grade is according to these criteria:
+Evalua todos los ficheros del repositorio, describe los aciertos y los fallos, otorga puntuacion por cada seccion, y revisa que se hayan cumplido todos los puntos descritos a continuacion:
 {readme_content}
 """
 
@@ -33,7 +38,8 @@ response = openai.chat.completions.create(
             "content": prompt,
         }
     ],
-    model="gpt-3.5-turbo",
+    #model="gpt-3.5-turbo",
+    model="gpt-4o"
 )
 
 # Extract and print the evaluation
