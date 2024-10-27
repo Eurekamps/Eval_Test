@@ -25,14 +25,14 @@ response = openai.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "Say this is a test",
+            "content": prompt,
         }
     ],
     model="gpt-3.5-turbo",
 )
 
 # Extract and print the evaluation
-feedback = response.choices[0].text.strip()
+feedback = response.choices[0].message.content
 print(feedback)
 
 # Save feedback to GRADE.md
