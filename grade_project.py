@@ -15,14 +15,24 @@ Evaluate the following project based on these criteria:
 """
 
 # Generate evaluation and grade with ChatGPT
-response = openai.ChatCompletion.create(
+#response = openai.ChatCompletion.create(
+#    model="gpt-4",
+#    messages=[{"role": "system", "content": prompt}],
+#    max_tokens=150
+#)
+
+response = openai.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "Say this is a test",
+        }
+    ],
     model="gpt-3.5-turbo",
-    messages=[{"role": "user", "content": prompt}],
-    max_tokens=150
 )
 
 # Extract and print the evaluation
-feedback = response['choices'][0]['message']['content']
+feedback = response.choices[0].text.strip()
 print(feedback)
 
 # Save feedback to GRADE.md
