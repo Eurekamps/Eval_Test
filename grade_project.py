@@ -9,8 +9,13 @@ with open("README.md", "r") as file:
     readme_content = file.read()
 
 # Define your prompt with extracted data (test results, README instructions)
+# prompt = f"""
+# Check all files in the Github Repository and Grade is according to these criteria:
+# {readme_content}
+# """
+
 prompt = f"""
-Check all files in the Github Repository and Grade is according to these criteria:
+Check all the GitHub project, file by file and it's complete structure, and Grade is according to these criteria:
 {readme_content}
 """
 
