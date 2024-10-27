@@ -20,7 +20,7 @@ with open("README.md", "r") as file:
 #"""
 
 prompt = f"""
-Evalua todos los ficheros del repositorio, describe los aciertos y los fallos, otorga puntuacion por cada seccion, y revisa que se hayan cumplido todos los puntos descritos a continuacion:
+Evalua todos los ficheros del repositorio, los ficheros HTML, CSS, JS, VUE, KOTLIN, JAVA, DART, describe los aciertos y los fallos mostrando el sitio donde acerto y fallo, otorga puntuacion por cada seccion, y revisa que se hayan cumplido todos los puntos descritos a continuacion:
 {readme_content}
 """
 
