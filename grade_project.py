@@ -8,7 +8,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 with open("README.md", "r") as file:
     readme_content = file.read()
 
-# Define your prompt with extracted data (test results, README instructions)
+# Define your prompt with extracted data
 prompt = f"""
 Evaluate the following project based on these criteria:
 {readme_content}
@@ -17,7 +17,10 @@ Evaluate the following project based on these criteria:
 # Generate evaluation and grade with ChatGPT
 response = openai.ChatCompletion.create(
     model="gpt-4",
-    messages=[{"role": "system", "content": prompt}],
+    messages=[
+        {"role": "system", "content": "You are an expert code reviewer."},
+        {"role": "user", "content": prompt}
+    ],
     max_tokens=150
 )
 
