@@ -25,7 +25,7 @@ response = openai.ChatCompletion.create(
 )
 
 # Extract and print the evaluation
-feedback = response.choices[0].message.content
+feedback = response['choices'][0]['message']['content']
 print(feedback)
 
 # Save feedback to GRADE.md
