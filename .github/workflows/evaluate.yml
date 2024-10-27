@@ -1,0 +1,19 @@
+name: Evaluate Project
+on: [push]
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Run Tests
+        run: |
+          # Run any tests here (e.g., pytest or npm test)
+          echo "Run your tests here and save results as needed"
+
+      - name: Grade the Project
+        run: python grade_project.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
