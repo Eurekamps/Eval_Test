@@ -10,7 +10,7 @@ with open("README.md", "r") as file:
 
 # Define your prompt with extracted data (test results, README instructions)
 prompt = f"""
-Evaluate the following project based on these criteria:
+Check all files in the Github Repository and Grade is according to these criteria:
 {readme_content}
 """
 
@@ -24,7 +24,7 @@ Evaluate the following project based on these criteria:
 response = openai.chat.completions.create(
     messages=[
         {
-            "role": "user",
+            "role": "system",
             "content": prompt,
         }
     ],
